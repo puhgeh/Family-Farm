@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Person</key>
+	<dict>
+		<key>name</key>
+		<dict>
+			<key>The name of the employee</key>
+			<string></string>
+		</dict>
+		<key>address</key>
+		<dict>
+			<key>The place the person lives</key>
+			<string></string>
+		</dict>
+		<key>contact number</key>
+		<dict>
+			<key>The landline or cellphone number of the person</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>Payment</key>
+	<dict>
+		<key>amount</key>
+		<dict>
+			<key>The amount / count of the payment given related to the type of payment specified.</key>
+			<string></string>
+		</dict>
+		<key>date</key>
+		<dict>
+			<key>The date when the payment was made.</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>Service</key>
+	<dict>
+		<key>baseCost</key>
+		<dict>
+			<key>This is the base / default pricing for the service offered unless otherwise specified to be explicitly different</key>
+			<string></string>
+		</dict>
+		<key>baseLandArea</key>
+		<dict>
+			<key>This is the basis of the computation of the base cost specified.</key>
+			<string></string>
+		</dict>
+		<key>unitOfMeasure</key>
+		<dict>
+			<key>The descriptive unit of measure of the base land area specified.</key>
+			<string></string>
+		</dict>
+		<key>name</key>
+		<dict>
+			<key>The name of the service offered.</key>
+			<string></string>
+		</dict>
+		<key>defaultPercentage</key>
+		<dict>
+			<key>The default percentage / cut to be used as reference for the employees</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>PaymentType</key>
+	<dict>
+		<key>type</key>
+		<dict>
+			<key>The type of payment; monetary or by any form</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>Transaction</key>
+	<dict>
+		<key>date</key>
+		<dict>
+			<key>The date when the transaction was made.</key>
+			<string></string>
+		</dict>
+		<key>landArea</key>
+		<dict>
+			<key>The size of the land served.</key>
+			<string></string>
+		</dict>
+		<key>unitOfMeasure</key>
+		<dict>
+			<key>The descriptive unit of measure of the land area specified.</key>
+			<string></string>
+		</dict>
+		<key>note</key>
+		<dict>
+			<key>Any notes regarding the transaction.</key>
+			<string></string>
+		</dict>
+		<key>partingPercentage</key>
+		<dict>
+			<key>The explicit percentage / cut of the employees from the payment; disregarding the default percentage / cut specified for the service.</key>
+			<string></string>
+		</dict>
+	</dict>
+</dict>
+</plist>

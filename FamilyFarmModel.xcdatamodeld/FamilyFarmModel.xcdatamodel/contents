@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Client" representedClassName="Client" parentEntity="Person" syncable="YES">
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="client" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="Payment" representedClassName="Payment" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="paymentType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PaymentType" inverseName="payments" inverseEntity="PaymentType" syncable="YES"/>
+        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Transaction" inverseName="payments" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="PaymentType" representedClassName="PaymentType" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="payments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Payment" inverseName="paymentType" inverseEntity="Payment" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" isAbstract="YES" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contactNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Service" representedClassName="Service" syncable="YES">
+        <attribute name="baseCost" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="baseLandArea" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="defaultPercentage" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitOfCost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitOfLand" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="service" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="landArea" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="partingPercentage" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="unitOfLand" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="client" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="transactions" inverseEntity="Client" syncable="YES"/>
+        <relationship name="payments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Payment" inverseName="transaction" inverseEntity="Payment" syncable="YES"/>
+        <relationship name="service" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="transactions" inverseEntity="Service" syncable="YES"/>
+        <relationship name="workers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Worker" inverseName="transactions" inverseEntity="Worker" syncable="YES"/>
+    </entity>
+    <entity name="Worker" representedClassName="Worker" parentEntity="Person" syncable="YES">
+        <attribute name="totalAdvanced" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalSalary" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="workers" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Client" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="Payment" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="PaymentType" positionX="0" positionY="0" width="128" height="73"/>
+        <element name="Person" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Service" positionX="0" positionY="0" width="128" height="148"/>
+        <element name="Transaction" positionX="0" positionY="0" width="128" height="178"/>
+        <element name="Worker" positionX="0" positionY="0" width="128" height="90"/>
+    </elements>
+</model>
